@@ -8,3 +8,4 @@ urlpatterns = [
     path('daily-care/', views.DailyCareListView.as_view(), name='daily_care'),
     path('add-care/<int:cat_id>/', views.add_care_record, name='add_care_record'),
 ]
+

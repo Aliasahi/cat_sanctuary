@@ -5,7 +5,7 @@ from django.contrib.auth.mixins import UserPassesTestMixin
 from django.views.generic import TemplateView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic import ListView
-from administrator.models import User
+from .models import User
 from .forms import CustomUserCreationForm 
 
 def signup(request):
@@ -26,8 +26,11 @@ def role_based_redirect(request):
         return redirect('administrator:dashboard')
     elif request.user.role == 'medical_staff':
         return redirect('medical_staff:dashboard')
+    elif request.user.role == 'caretaker':
+        return redirect('caretaker:dashboard') 
     else:
-        return redirect('caretaker:dashboard')
+        return redirect('login') 
+
 
 class RoleRequiredMixin(UserPassesTestMixin):
     required_role = None 

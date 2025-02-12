@@ -42,6 +42,6 @@ urlpatterns = [
     path('medical/dashboard/', views.medical_dashboard, name='medical_dashboard'),
     path('caretaker/dashboard/', views.caretaker_dashboard, name='caretaker_dashboard'),
 
-    # Administrator App (Fixed)
+    # Administrator App
     path('administrator/', include(('administrator.urls', 'administrator'), namespace='administrator')),
 ]
